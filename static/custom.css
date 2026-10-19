@@ -1,0 +1,75 @@
+@font-face {
+    font-family: Nunito;
+    src: url("./fonts/Nunito/Nunito-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: FiraCode;
+    src: url("./fonts/Fira_Code/FiraCode-VariableFont_wght.ttf");
+}
+
+:root {
+    --font-sans: Nunito, system-ui, -apple-system;
+    --font-mono: FiraCode, monospace;
+    --color-accent: #ff9100;
+    --color-accent-contrast: #181818;
+    --color-bg: light-dark(#fff, #181818);
+    --color-surface: light-dark(#eee, #111);
+    --color-pre-bg: light-dark(#eee, #111);
+    --color-code-bg: light-dark(#eee, #111);
+    --color-surface-strong: light-dark(#eee, #111);
+    --color-border: light-dark(#ddd, #333);
+    --brand-banner: light-dark(url("./brand/synxit-banner-light.svg"), url("./brand/synxit-banner-dark.svg"));
+}
+
+:root,
+:root[data-theme="light"] {
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+.site-logo-mark-image {
+    width: 8em;
+    inset: 0;
+    background-image: var(--brand-banner);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    border: 2px solid var(--color-bg);
+}
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+    scrollbar-color: var(--color-border) transparent !important;
+}
+
+.site-main-home-wide+.site-footer,
+.site-main-home-default+.site-footer {
+    background: transparent !important;
+}
+
+.content figcaption {
+    margin-top: 0px;
+}
+
+.content-diagram {
+    --diagram-line: var(--color-accent) !important;
+}
+
+.not-found-code {
+    font-family: var(--font-sans) !important;
+}
+
+::selection {
+    color: var(--color-accent-contrast) !important;
+    background: var(--color-accent) !important;
+}

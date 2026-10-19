@@ -1,0 +1,50 @@
+title = "synxit"
+author = "synxit"
+default_language = "en"
+base_url = "https://synxit.com"
+
+theme = "devlab-theme"
+
+compile_sass = true
+build_search_index = true
+generate_feeds = true
+
+[markdown]
+render_emoji = true
+external_links_class = "external-link"
+external_links_target_blank = true
+
+[markdown.highlighting]
+error_on_missing_language = true
+dark_theme = "dark-plus"
+light_theme = "light-plus"
+style = "inline"
+
+[extra.devlab.brand]
+logo_text = ""
+footer_text = "synxit"
+show_logo_mark = true
+logo_mark_path = "#" # colored via --brand-banner (theme-aware)
+
+[extra.devlab.footer]
+show = true
+links_label = ""
+show_link_names = true
+links = [
+  { name = "GitHub", path = "https://github.com/synxit", icon = "github" },
+  { name = "Atom Feed", path = "./atom.xml", icon = "rss" },
+]
+
+[extra.devlab.collections.docs]
+section = "docs/_index.md"
+navigation = [
+  { section = "docs/getting-started/_index.md" },
+  { section = "docs/self-hosting/_index.md" },
+]
+
+[extra.devlab.navigation]
+links = [
+  { name = "Home", path = "/" },
+  { name = "About", path = "/about" },
+  { name = "Docs", collection = "docs" },
+]
