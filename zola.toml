@@ -2,6 +2,8 @@ title = "synxit"
 author = "synxit"
 default_language = "en"
 base_url = "https://synxit.com"
+minify_html = true
+generate_sitemap = true
 
 theme = "devlab-theme"
 
@@ -24,27 +26,27 @@ style = "inline"
 logo_text = ""
 footer_text = "synxit"
 show_logo_mark = true
-logo_mark_path = "#" # colored via --brand-banner (theme-aware)
+logo_mark_path = "#"   # colored via --brand-banner (theme-aware)
 
 [extra.devlab.footer]
 show = true
 links_label = ""
 show_link_names = true
 links = [
-  { name = "GitHub", path = "https://github.com/synxit", icon = "github" },
-  { name = "Atom Feed", path = "./atom.xml", icon = "rss" },
+    { name = "GitHub", path = "https://github.com/synxit", icon = "github" },
+    { name = "Atom Feed", path = "./atom.xml", icon = "rss" },
 ]
 
 [extra.devlab.collections.docs]
 section = "docs/_index.md"
 navigation = [
-  { section = "docs/getting-started/_index.md" },
-  { section = "docs/self-hosting/_index.md" },
+    { section = "docs/getting-started/_index.md" },
+    { section = "docs/self-hosting/_index.md" },
 ]
 
 [extra.devlab.navigation]
 links = [
-  { name = "Home", path = "/" },
-  { name = "About", path = "/about" },
-  { name = "Docs", collection = "docs" },
+    { name = "Home", path = "/" },
+    { name = "About", path = "/about" },
+    { name = "Docs", collection = "docs" },
 ]

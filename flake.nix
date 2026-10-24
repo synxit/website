@@ -47,7 +47,7 @@
 
           buildPhase = ''
             runHook preBuild
-            zola build --minify
+            zola build
             runHook postBuild
           '';
           installPhase = ''
