@@ -1,25 +1,33 @@
 {
   description = "A flake for the synxit website, built with Zola and using the devlab theme.";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-  inputs.systems.url = "github:nix-systems/default";
-  inputs.flake-utils = {
-    url = "github:numtide/flake-utils";
-    inputs.systems.follows = "systems";
-  };
-  inputs.devlab-theme = {
-    url = "git+https://codeberg.org/RiPetitor/devlab-theme";
-    flake = false;
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+    devlab-theme = {
+      url = "git+https://codeberg.org/RiPetitor/devlab-theme";
+      flake = false;
+    };
   };
 
   outputs =
-    { nixpkgs, flake-utils, devlab-theme, ... }:
+    {
+      nixpkgs,
+      flake-utils,
+      treefmt-nix,
+      devlab-theme,
+      ...
+    }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
         themeName = ((builtins.fromTOML (builtins.readFile "${devlab-theme}/theme.toml")).name);
+        treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
+        formatter = treefmtEval.config.build.wrapper;
         devShells.default = pkgs.mkShell {
           packages = [
             pkgs.zola
