@@ -42,6 +42,7 @@ section = "docs/_index.md"
 navigation = [
   { section = "docs/getting-started/_index.md" },
   { section = "docs/self-hosting/_index.md" },
+  { section = "docs/protocol/_index.md" },
 ]
 
 [extra.devlab.navigation]
