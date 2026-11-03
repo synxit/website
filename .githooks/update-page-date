@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TODAY=$(date +%Y-%m-%d)
+
+for FILE in "$@"; do
+  [ -f "$FILE" ] || continue
+
+  awk -v today="$TODAY" '
+    NR == 1 && /^\+\+\+$/ {
+      in_frontmatter = 1
+      print
+      next
+    }
+
+    in_frontmatter && /^\+\+\+$/ {
+      in_frontmatter = 0
+      print
+      next
+    }
+
+    in_frontmatter && /^updated[[:space:]]*=/ {
+      print "updated = " today
+      next
+    }
+
+    { print }
+  ' "$FILE" > "$FILE.tmp"
+
+  mv "$FILE.tmp" "$FILE"
+done
