@@ -3,11 +3,11 @@
     "devlab-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1793202390,
-        "narHash": "sha256-iwUkyMg2zioPhHuXyRccz4LiT0PF9S/uXonoizlcih0=",
+        "lastModified": 1794766799,
+        "narHash": "sha256-9IXekzZMAuiZvKRI6CWw3r9PhNFo5pBClVeAf4NZb4I=",
         "ref": "refs/heads/main",
-        "rev": "b7f6fa9ebbf21c82282f620fb73fc9511ba93955",
-        "revCount": 310,
+        "rev": "7324356d704aacfe74a479d3db7e74f219ad06bd",
+        "revCount": 351,
         "type": "git",
         "url": "https://codeberg.org/RiPetitor/devlab-theme"
       },
